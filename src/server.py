@@ -1,9 +1,6 @@
 from flask import Flask, jsonify, request
-import joblib
-## tokenizar
-model1 = joblib.load("/Users/japeto/t1-pln-2024/models/model1.pkl")
-model2 = joblib.load("/Users/japeto/t1-pln-2024/models/model2.pkl")
-model3 = joblib.load("/Users/japeto/t1-pln-2024/models/model3.pkl")
+
+from loader import model1, model2, model3 
 
 app = Flask(__name__)
 
