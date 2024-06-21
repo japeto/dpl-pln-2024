@@ -1,8 +1,9 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 
 from loader import model1, model2, model3, model4, model5
-
 app = Flask(__name__)
+CORS(app)  # Permite todas las solicitudes CORS
 
 @app.route("/ping", methods=['GET'])
 def pong():
