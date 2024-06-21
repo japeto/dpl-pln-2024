@@ -22,7 +22,11 @@
                 contentType: 'application/json',
                 data: JSON.stringify({ text: inputValue }),
                 success: function(response) {
-                    $('#result').text(`Response: ${response}`);
+                  let output="";
+                  $.each(response['tokenized'], function(key,value) {
+                    output = output+ `token ${key}: ${value}\n`;
+                  });
+                  $('#result').text(output);
                 },
                 error: function(xhr, status, error) {
                     $('#result').text(`Error: ${xhr.responseText}`);
@@ -43,7 +47,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-8">
+          <div class="col-6">
             <div class="form-group">
               <select class="form-control" id="algorithm">
                   <option value="" disabled selected>Seleccione un algoritmo</option>
@@ -53,8 +57,14 @@
               </select>
             </div>
           </div>
-          <div class="col-4">
-            <button class="btn btn-block btn-primary" onclick="tokenize()">Tokenizar</button>
+          <div class="col-2">
+            <button class="btn btn-block btn-info" onclick="tokenize()">Tokenizar</button>
+          </div>
+          <div class="col-2">
+            <button class="btn btn-block btn-warning" onclick="stemming()">Derivar</button>
+          </div>
+          <div class="col-2">
+            <button class="btn btn-block btn-primary" onclick="lemmatize()">Lematizar</button>
           </div>
         </div>
         <div class="mt-4" id="result"></div>
