@@ -161,35 +161,3 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
-backend/env/bin/activate
-backend/env/bin/activate.csh
-backend/env/bin/activate.fish
-backend/env/bin/Activate.ps1
-backend/env/bin/convert-caffe2-to-onnx
-backend/env/bin/convert-onnx-to-caffe2
-backend/env/bin/f2py
-backend/env/bin/flask
-backend/env/bin/ipython
-backend/env/bin/ipython3
-backend/env/bin/isympy
-backend/env/bin/jupyter
-backend/env/bin/jupyter-kernel
-backend/env/bin/jupyter-kernelspec
-backend/env/bin/jupyter-migrate
-backend/env/bin/jupyter-run
-backend/env/bin/jupyter-troubleshoot
-backend/env/bin/markdown-it
-backend/env/bin/nltk
-backend/env/bin/normalizer
-backend/env/bin/pip
-backend/env/bin/pip3
-backend/env/bin/pip3.12
-backend/env/bin/pygmentize
-backend/env/bin/python
-backend/env/bin/python3
-backend/env/bin/python3.12
-backend/env/bin/spacy
-backend/env/bin/torchrun
-backend/env/bin/tqdm
-backend/env/bin/typer
-backend/env/bin/weasel
