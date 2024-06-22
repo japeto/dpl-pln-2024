@@ -22,11 +22,11 @@
                 contentType: 'application/json',
                 data: JSON.stringify({ text: inputValue }),
                 success: function(response) {
-                  let output="";
+                  let output="<p align='justify'>";
                   $.each(response['tokenized'], function(key,value) {
-                    output = output+ `token ${key}: ${value}\n`;
+                    output = output + `<span>${value}<sub>token ${key}</sub></span>` +" ";
                   });
-                  $('#result').text(output);
+                  $('#result').html(output+"</p>");
                 },
                 error: function(xhr, status, error) {
                     $('#result').text(`Error: ${xhr.responseText}`);
