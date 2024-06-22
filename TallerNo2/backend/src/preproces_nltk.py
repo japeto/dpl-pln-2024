@@ -41,16 +41,15 @@ def preprocessing(paragraphs:str, do_stem:bool=False, do_post:bool=False) ->dict
   # Remove punctuation
   filtered = [[a_token for a_token in a_sentence if not(a_token in string.punctuation)] for a_sentence in filtered]
 
-  return {"paragraphs":paragraphs, "sentences":lsentences, 
+  return {"paragraphs":paragraphs, "sentences":lsentences, "tokens":lltokens,
           "stemed":lstemmed, "tagged": ltagged, "lemma":llemmatized, "result":filtered}
 
+# ## testing preprocessing
+# a_paragraph = "Un párrafo es una unidad de un texto compuesta por una o varias oraciones"\
+#   ", que comienza con una mayúscula y que termina con un punto y aparte. Los textos se "\
+#   "organizan de manera tal que cada párrafo trata sobre una idea central. "\
+#   "Generalmente, la primera oración de cada párrafo suele explicitar cuál es el "\
+#   "punto principal que se desarrollará."
 
-## testing preprocessing
-a_paragraph = "Un párrafo es una unidad de un texto compuesta por una o varias oraciones"\
-  ", que comienza con una mayúscula y que termina con un punto y aparte. Los textos se "\
-  "organizan de manera tal que cada párrafo trata sobre una idea central. "\
-  "Generalmente, la primera oración de cada párrafo suele explicitar cuál es el "\
-  "punto principal que se desarrollará."
-
-result= preprocessing(a_paragraph)
-print(result["result"])
+# result= preprocessing(a_paragraph)
+# print(result["result"])
