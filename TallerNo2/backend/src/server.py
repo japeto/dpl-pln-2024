@@ -18,3 +18,7 @@ def preprocessing(method):
     1:pnltk(text),
     2:pspacy(text)
   }[method])
+
+
+if __name__ == "__main__":
+  app.run(debug=True)
