@@ -1,7 +1,7 @@
 
 import nltk
 from nltk.tokenize import word_tokenize, sent_tokenize
-from nltk.tag import post_tag
+from nltk import pos_tag
 from nltk.corpus import stopwords
 from nltk.stem import SnowballStemmer
 from nltk.stem import WordNetLemmatizer
@@ -19,7 +19,7 @@ nltk.download("omw-1.4")
 ## Creo los procesadores que voy a utilizar
 stemmer = SnowballStemmer('spanish')
 lemmatizer = WordNetLemmatizer()
-mystopwords = set(stopwords.words('spanish'))
+mystopwords = list(set(stopwords.words('spanish')))
 
 def preprocessing(paragraphs:str, do_stem:bool=False, do_post:bool=False) ->dict:
   # Segmentation -- Cuando es un parrafo debo separar las oraciones
@@ -33,13 +33,13 @@ def preprocessing(paragraphs:str, do_stem:bool=False, do_post:bool=False) ->dict
   ## Postagging (Optional)
   ltagged=None
   if do_post:
-    ltagged = [post_tag(a_sentence) for a_sentence in lltokens]
+    ltagged = [pos_tag(a_sentence) for a_sentence in lltokens]
   # Lemmatization
   llemmatized = [[lemmatizer.lemmatize(a_token) for a_token in a_sentence] for a_sentence in lltokens]
   # Remove Stop words
   filtered = [a_token for a_token in llemmatized if not(a_token in mystopwords) ]
   # Remove punctuation
-  filtered = [a_token for a_token in filtered if not(a_token in string.punctuation)]
+  filtered = [[a_token for a_token in a_sentence if not(a_token in string.punctuation)] for a_sentence in filtered]
 
   return {"paragraphs":paragraphs, "sentences":lsentences, 
           "stemed":lstemmed, "tagged": ltagged, "lemma":llemmatized, "result":filtered}
@@ -53,4 +53,4 @@ a_paragraph = "Un párrafo es una unidad de un texto compuesta por una o varias 
   "punto principal que se desarrollará."
 
 result= preprocessing(a_paragraph)
-print(result)
+print(result["result"])
